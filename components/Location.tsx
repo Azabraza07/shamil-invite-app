@@ -32,6 +32,7 @@ export default function Location() {
               alt="База отдыха BalQaragay"
               width={900}
               height={500}
+              sizes="(max-width: 768px) 100vw, 900px"
               className="w-full object-cover h-[300px] md:h-[420px]"
             />
           </div>

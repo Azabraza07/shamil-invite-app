@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
-const WEDDING_DATE = new Date('2026-06-26T16:00:00')
+const WEDDING_DATE = new Date('2026-06-26T16:00:00+03:00')
 
 function pad(n: number) {
   return String(Math.max(0, n)).padStart(2, '0')

@@ -23,6 +23,9 @@ export default function AdminLoginPage() {
 
       if (res.ok) {
         router.push('/admin')
+      } else if (res.status === 429) {
+        const data = await res.json().catch(() => ({}))
+        setError(data.error || 'Слишком много попыток. Попробуйте через 15 минут.')
       } else {
         setError('Неверный пароль')
       }

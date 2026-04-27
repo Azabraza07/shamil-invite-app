@@ -24,7 +24,7 @@ export default function GuestForm() {
   const [attending, setAttending] = useState<boolean | null>(null)
   const [companion, setCompanion] = useState('')
   const [drinks, setDrinks] = useState<string[]>([])
-  const [guestId, setGuestId] = useState<number | null>(null)
+  const [guestId, setGuestId] = useState<string | null>(null)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -39,7 +39,7 @@ export default function GuestForm() {
       setName(savedName)
       setCompanion(savedCompanion)
       if (savedAttending !== null) setAttending(savedAttending === 'true')
-      if (savedId) setGuestId(Number(savedId))
+      if (savedId) setGuestId(savedId)
       if (savedDrinks) setDrinks(JSON.parse(savedDrinks))
       setStatus('success')
     }
@@ -68,7 +68,7 @@ export default function GuestForm() {
     }
 
     try {
-      const isEdit = guestId !== null
+      const isEdit = !!guestId
       const res = await fetch('/api/rsvp', {
         method: isEdit ? 'PATCH' : 'POST',
         headers: { 'Content-Type': 'application/json' },

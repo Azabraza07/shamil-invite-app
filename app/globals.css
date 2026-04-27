@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  font-family: var(--font-inter);
+  font-family: var(--font-raleway), system-ui, sans-serif;
   color: #2a2a2a;
   background: #fafafa;
   -webkit-font-smoothing: antialiased;
@@ -43,4 +43,23 @@ body {
 .arch-frame {
   border-radius: 50% 50% 0 0 / 60% 60% 0 0;
   overflow: hidden;
+}
+
+/* Hero entrance animations (CSS, no JS needed) */
+@keyframes hero-word-in {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes divider-in {
+  from { opacity: 0; transform: scaleX(0); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+.animate-hero-word {
+  opacity: 0;
+  animation: hero-word-in 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+.animate-divider {
+  opacity: 0;
+  animation: divider-in 0.8s ease-out forwards;
 }

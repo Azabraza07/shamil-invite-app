@@ -1,13 +1,14 @@
+import dynamic from 'next/dynamic'
 import Hero from '@/components/Hero'
 import Intro from '@/components/Intro'
 import DateSection from '@/components/DateSection'
 import Location from '@/components/Location'
-import Timeline from '@/components/Timeline'
-import DressCode from '@/components/DressCode'
-import Countdown from '@/components/Countdown'
-import GuestForm from '@/components/GuestForm'
-// import StickyRSVP from '@/components/StickyRSVP'
 import FadeIn from '@/components/FadeIn'
+
+const Timeline = dynamic(() => import('@/components/Timeline'))
+const DressCode = dynamic(() => import('@/components/DressCode'))
+const Countdown = dynamic(() => import('@/components/Countdown'))
+const GuestForm = dynamic(() => import('@/components/GuestForm'))
 
 export default function Home() {
   return (

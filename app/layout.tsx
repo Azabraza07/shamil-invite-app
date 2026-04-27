@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Cormorant, Raleway } from 'next/font/google'
 import './globals.css'
 
@@ -16,6 +16,11 @@ const raleway = Raleway({
   variable: '--font-raleway',
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   title: 'Шамиль & Милана — 26 июня 2026',

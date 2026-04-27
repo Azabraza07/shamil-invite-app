@@ -30,6 +30,7 @@ export default function Intro() {
                 alt="Шамиль и Милана"
                 width={280}
                 height={340}
+                sizes="(max-width: 768px) 240px, 280px"
                 className="object-cover w-full"
               />
             </div>

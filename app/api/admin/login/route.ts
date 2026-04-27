@@ -1,6 +1,16 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { checkRateLimit } from '@/lib/rate-limit'
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown'
+
+  if (!checkRateLimit(`admin-login:${ip}`, 5, 15 * 60_000)) {
+    return NextResponse.json(
+      { ok: false, error: 'Слишком много попыток. Попробуйте через 15 минут.' },
+      { status: 429 }
+    )
+  }
+
   const { password } = await request.json()
 
   if (password !== process.env.ADMIN_PASSWORD) {

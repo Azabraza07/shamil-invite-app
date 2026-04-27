@@ -11,7 +11,7 @@ export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey, {
 })
 
 export type Guest = {
-  id: number
+  id: string
   name: string
   attending: boolean
   companion_name: string | null

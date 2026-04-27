@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: 'Cormorant', Georgia, serif;
+  --font-raleway: 'Raleway', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0px;
+}
+
+/* Плавный скролл на iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: var(--font-inter);
+  color: #2a2a2a;
+  background: #fafafa;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Decorative divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #c0b8b0;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Arch frame for hero photo */
+.arch-frame {
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+  overflow: hidden;
+}

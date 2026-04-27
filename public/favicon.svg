@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Dark charcoal background -->
+  <rect width="100" height="100" rx="12" fill="#231f1c"/>
+  <!-- Two wedding rings -->
+  <circle cx="36" cy="50" r="19" fill="none" stroke="#c9a96e" stroke-width="7"/>
+  <circle cx="64" cy="50" r="19" fill="none" stroke="#c9a96e" stroke-width="7"/>
+</svg>

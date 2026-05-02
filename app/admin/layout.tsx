@@ -10,7 +10,7 @@ export default async function AdminLayout({
   const session = cookieStore.get('admin_session')
 
   if (!session || session.value !== process.env.ADMIN_SESSION_SECRET) {
-    redirect('/admin/login')
+    redirect('/admin-login')
   }
 
   return <>{children}</>

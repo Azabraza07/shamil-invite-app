@@ -5,6 +5,10 @@ export function checkRateLimit(key: string, limit: number, windowMs: number): bo
   const entry = store.get(key)
 
   if (!entry || entry.resetAt < now) {
+    // Purge all expired entries to prevent memory leak
+    for (const [k, v] of store) {
+      if (v.resetAt < now) store.delete(k)
+    }
     store.set(key, { count: 1, resetAt: now + windowMs })
     return true
   }

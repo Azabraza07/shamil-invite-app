@@ -28,7 +28,7 @@ export default function Location() {
         >
           <div className="overflow-hidden rounded-sm shadow-md mb-8">
             <Image
-              src="/photos/venue.jpg"
+              src="/photos/location.PNG"
               alt="База отдыха BalQaragay"
               width={900}
               height={500}
@@ -44,12 +44,12 @@ export default function Location() {
               </h3>
               <p className="text-stone-500 mb-3">ул. Астана-Малотимофеевка, 2</p>
               <p className="text-charcoal font-medium">
-                Сбор гостей — <span className="font-semibold">16:00</span>
+                {/*Сбор гостей — <span className="font-semibold">16:00</span>*/}
               </p>
             </div>
 
             <a
-              href="https://yandex.kz/maps/?text=База+отдыха+BalQaragay+Астана"
+              href="https://go.2gis.com/9BjvH"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-charcoal text-white px-8 py-3 text-sm tracking-widest uppercase hover:bg-stone-700 transition-colors whitespace-nowrap"

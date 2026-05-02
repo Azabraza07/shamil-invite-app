@@ -40,7 +40,7 @@ export default function DateSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="border border-stone-200 bg-white p-8 rounded-sm shadow-sm min-w-[300px]"
+            className="border border-stone-200 bg-white p-8 rounded-sm shadow-sm w-full md:w-auto md:min-w-[300px]"
           >
             <p className="font-serif text-center text-2xl text-charcoal mb-2">Июнь</p>
             <p className="text-center text-stone-400 tracking-widest text-sm mb-1">
@@ -62,7 +62,7 @@ export default function DateSection() {
                   <div
                     key={`${wi}-${di}`}
                     className={`
-                      py-1 rounded-sm
+                      py-1 rounded-xl
                       ${day === 26 ? 'bg-charcoal text-white font-semibold' : 'text-stone-600'}
                       ${!day ? 'invisible' : ''}
                     `}

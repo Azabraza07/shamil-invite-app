@@ -88,7 +88,11 @@ export default function GuestForm() {
         setStatus('success')
       } else {
         const data = await res.json()
-        setErrorMsg(data.error || 'Произошла ошибка')
+        if (res.status === 403) {
+          setErrorMsg('Не удалось изменить ответ — сессия устарела. Напишите нам напрямую.')
+        } else {
+          setErrorMsg(data.error || 'Произошла ошибка')
+        }
         setStatus('error')
       }
     } catch {
@@ -112,7 +116,7 @@ export default function GuestForm() {
             Пожалуйста, подтвердите своё присутствие до:
           </p>
           <p className="text-center text-charcoal font-semibold text-lg mb-12">
-            01 / 06 / 2026
+            12 / 06 / 2026
           </p>
         </motion.div>
 
@@ -203,41 +207,41 @@ export default function GuestForm() {
             </div>
 
             {/* Companion */}
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2">
-                Имя и Фамилия спутника / спутницы
-              </label>
-              <input
-                type="text"
-                value={companion}
-                onChange={(e) => setCompanion(e.target.value)}
-                placeholder="Если придёте не одни"
-                className="w-full border-b border-stone-200 py-3 text-charcoal placeholder:text-stone-300 focus:outline-none focus:border-charcoal transition-colors bg-transparent"
-              />
-            </div>
+            {/*<div>*/}
+            {/*  <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2">*/}
+            {/*    Имя и Фамилия спутника / спутницы*/}
+            {/*  </label>*/}
+            {/*  <input*/}
+            {/*    type="text"*/}
+            {/*    value={companion}*/}
+            {/*    onChange={(e) => setCompanion(e.target.value)}*/}
+            {/*    placeholder="Если придёте не одни"*/}
+            {/*    className="w-full border-b border-stone-200 py-3 text-charcoal placeholder:text-stone-300 focus:outline-none focus:border-charcoal transition-colors bg-transparent"*/}
+            {/*  />*/}
+            {/*</div>*/}
 
             {/* Drinks */}
-            <div>
-              <p className="text-xs uppercase tracking-widest text-stone-400 mb-4">
-                Предпочтения по напиткам
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {DRINKS.map((d) => (
-                  <button
-                    key={d}
-                    type="button"
-                    onClick={() => toggleDrink(d)}
-                    className={`px-4 py-2 border text-sm tracking-wide transition-all duration-200
-                      ${drinks.includes(d)
-                        ? 'bg-charcoal text-white border-charcoal'
-                        : 'bg-white text-stone-500 border-stone-200 hover:border-stone-400 hover:text-stone-700'
-                      }`}
-                  >
-                    {d}
-                  </button>
-                ))}
-              </div>
-            </div>
+            {/*<div>*/}
+            {/*  <p className="text-xs uppercase tracking-widest text-stone-400 mb-4">*/}
+            {/*    Предпочтения по напиткам*/}
+            {/*  </p>*/}
+            {/*  <div className="flex flex-wrap gap-2">*/}
+            {/*    {DRINKS.map((d) => (*/}
+            {/*      <button*/}
+            {/*        key={d}*/}
+            {/*        type="button"*/}
+            {/*        onClick={() => toggleDrink(d)}*/}
+            {/*        className={`px-4 py-2 border text-sm tracking-wide transition-all duration-200*/}
+            {/*          ${drinks.includes(d)*/}
+            {/*            ? 'bg-charcoal text-white border-charcoal'*/}
+            {/*            : 'bg-white text-stone-500 border-stone-200 hover:border-stone-400 hover:text-stone-700'*/}
+            {/*          }`}*/}
+            {/*      >*/}
+            {/*        {d}*/}
+            {/*      </button>*/}
+            {/*    ))}*/}
+            {/*  </div>*/}
+            {/*</div>*/}
 
             {errorMsg && (
               <p className="text-red-400 text-sm">{errorMsg}</p>

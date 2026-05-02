@@ -21,14 +21,14 @@ const events = [
     label: 'Церемония регистрации',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-10 h-10">
-        <circle cx="9" cy="12" r="4" />
-        <circle cx="15" cy="12" r="4" />
+        <circle cx="8" cy="12" r="5.5" />
+        <circle cx="16" cy="12" r="5.5" />
       </svg>
     ),
   },
   {
-    time: '17:30',
-    label: 'Банкет',
+    time: '17:40',
+    label: 'Начало банкета',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-10 h-10">
         <path d="M8 3v4a4 4 0 0 0 8 0V3" />

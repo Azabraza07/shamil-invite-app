@@ -5,10 +5,12 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const palette = [
-  { color: '#1a1a1a', label: 'Чёрный' },
-  { color: '#555555', label: 'Тёмно-серый' },
-  { color: '#aaaaaa', label: 'Светло-серый' },
-  { color: '#ffffff', label: 'Белый' },
+  { color: '#eae1d6', label: 'Кремовый' },
+  { color: '#d6c0a8', label: 'Бежевый' },
+  { color: '#e3beb5', label: 'Пудровый' },
+  { color: '#97a380', label: 'Шалфей' },
+  { color: '#7a5946', label: 'Шоколад' },
+  { color: '#65653e', label: 'Оливковый' },
 ]
 
 export default function DressCode() {
@@ -31,18 +33,27 @@ export default function DressCode() {
           Дресс-код
         </motion.h2>
 
+        {/*<motion.p*/}
+        {/*  initial={{ opacity: 0 }}*/}
+        {/*  animate={isInView ? { opacity: 1 } : {}}*/}
+        {/*  transition={{ duration: 0.6, delay: 0.15 }}*/}
+        {/*  className="text-stone-500 mb-10 leading-relaxed"*/}
+        {/*>*/}
+        {/*  Мы очень ждём и готовимся к нашему незабываемому дню! Поддержите нас*/}
+        {/*  Вашими улыбками и объятиями, а также красивыми нарядами в палитре*/}
+        {/*  мероприятия*/}
+        {/*</motion.p>*/}
+
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-stone-500 mb-10 leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-stone-500 mb-10 leading-relaxed"
         >
-          Мы очень ждём и готовимся к нашему незабываемому дню! Поддержите нас
-          Вашими улыбками и объятиями, а также красивыми нарядами в палитре
-          мероприятия
+          Позже напишу
         </motion.p>
 
-        <div className="flex justify-center gap-4 mb-10">
+        <div className="grid grid-cols-3 sm:grid-cols-6 justify-items-center gap-x-4 gap-y-6 mb-10">
           {palette.map((p, i) => (
             <motion.div
               key={p.color}
@@ -61,14 +72,14 @@ export default function DressCode() {
         </div>
 
         {/* Decorative flourish */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-stone-300 text-4xl font-serif"
-        >
-          ∞
-        </motion.div>
+        {/*<motion.div*/}
+        {/*  initial={{ opacity: 0 }}*/}
+        {/*  animate={isInView ? { opacity: 1 } : {}}*/}
+        {/*  transition={{ duration: 0.6, delay: 0.35 }}*/}
+        {/*  className="text-stone-300 text-4xl font-serif"*/}
+        {/*>*/}
+        {/*  ∞*/}
+        {/*</motion.div>*/}
       </div>
     </section>
   )

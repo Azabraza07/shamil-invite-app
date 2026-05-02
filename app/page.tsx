@@ -1,9 +1,11 @@
 import dynamic from 'next/dynamic'
 import Hero from '@/components/Hero'
 import Intro from '@/components/Intro'
+import PhotoGallery from '@/components/PhotoGallery'
 import DateSection from '@/components/DateSection'
 import Location from '@/components/Location'
 import FadeIn from '@/components/FadeIn'
+import ClosingBlock from '@/components/ClosingBlock'
 
 const Timeline = dynamic(() => import('@/components/Timeline'))
 const DressCode = dynamic(() => import('@/components/DressCode'))
@@ -18,6 +20,10 @@ export default function Home() {
       <FadeIn direction="up">
         <Intro />
       </FadeIn>
+
+      {/*<FadeIn direction="up" delay={0.05}>*/}
+      {/*  <PhotoGallery />*/}
+      {/*</FadeIn>*/}
 
       <FadeIn direction="up" delay={0.05}>
         <DateSection />
@@ -43,16 +49,7 @@ export default function Home() {
         <GuestForm />
       </FadeIn>
 
-      <FadeIn direction="up" delay={0.05}>
-        <footer className="py-10 bg-charcoal text-center">
-          <p className="font-serif text-2xl text-white mb-1">
-            До скорой встречи!
-          </p>
-          <p className="text-stone-400 text-sm">
-            С любовью, Шамиль & Милана
-          </p>
-        </footer>
-      </FadeIn>
+      <ClosingBlock />
 
       {/* <StickyRSVP /> */}
     </main>

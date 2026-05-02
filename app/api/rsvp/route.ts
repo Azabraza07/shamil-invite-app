@@ -124,7 +124,7 @@ export async function PATCH(request: NextRequest) {
     const attending =
       typeof body.attending === 'string' ? body.attending === 'true' : body.attending
 
-    if (!id || typeof name !== 'string' || !name.trim() || typeof attending !== 'boolean') {
+    if (!id || typeof id !== 'string' || typeof name !== 'string' || !name.trim() || typeof attending !== 'boolean') {
       return NextResponse.json({ error: 'Заполните обязательные поля' }, { status: 400 })
     }
     if (name.trim().length > MAX_NAME_LENGTH) {

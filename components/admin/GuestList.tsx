@@ -58,18 +58,6 @@ function AttendanceBar({ attending, total }: { attending: number; total: number 
   )
 }
 
-function DrinkBar({ count, max }: { count: number; max: number }) {
-  const [width, setWidth] = useState(0)
-  useEffect(() => {
-    const t = setTimeout(() => setWidth((count / max) * 100), 300)
-    return () => clearTimeout(t)
-  }, [count, max])
-  return (
-    <div className="h-full rounded-full transition-all duration-700 ease-out bg-stone-300"
-      style={{ width: `${width}%` }} />
-  )
-}
-
 export default function GuestList({ guests }: { guests: Guest[] }) {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState<Filter>('all')
@@ -87,21 +75,10 @@ export default function GuestList({ guests }: { guests: Guest[] }) {
       const q = search.toLowerCase()
       const matchesSearch =
         !q ||
-        g.name.toLowerCase().includes(q) ||
-        (g.companion_name?.toLowerCase().includes(q) ?? false)
+        g.name.toLowerCase().includes(q)
       return matchesFilter && matchesSearch
     })
   }, [guests, search, filter])
-
-  const drinkStats = useMemo(() => {
-    const counts: Record<string, number> = {}
-    guests.filter((g) => g.attending).forEach((g) =>
-      g.drink_preferences.forEach((d) => { counts[d] = (counts[d] || 0) + 1 })
-    )
-    return Object.entries(counts).sort((a, b) => b[1] - a[1])
-  }, [guests])
-
-  const maxDrink = drinkStats[0]?.[1] ?? 1
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -154,24 +131,6 @@ export default function GuestList({ guests }: { guests: Guest[] }) {
         {total > 0 && (
           <div className="bg-white rounded-2xl border border-stone-100 px-5 py-4 shadow-sm">
             <AttendanceBar attending={attending} total={total} />
-          </div>
-        )}
-
-        {/* Напитки */}
-        {drinkStats.length > 0 && (
-          <div className="bg-white rounded-2xl border border-stone-100 px-5 py-4 shadow-sm">
-            <p className="text-xs text-stone-400 uppercase tracking-widest mb-4">Напитки</p>
-            <div className="space-y-2.5">
-              {drinkStats.map(([drink, count]) => (
-                <div key={drink} className="flex items-center gap-3">
-                  <span className="text-xs text-stone-500 w-28 shrink-0 truncate">{drink}</span>
-                  <div className="flex-1 h-1.5 rounded-full bg-stone-100 overflow-hidden">
-                    <DrinkBar count={count} max={maxDrink} />
-                  </div>
-                  <span className="text-xs font-medium text-stone-500 w-4 text-right shrink-0">{count}</span>
-                </div>
-              ))}
-            </div>
           </div>
         )}
 
@@ -232,18 +191,6 @@ export default function GuestList({ guests }: { guests: Guest[] }) {
                       {guest.attending ? '✓' : '✗'}
                     </span>
                   </div>
-                  {guest.companion_name && (
-                    <p className="mt-0.5 text-xs text-stone-400">+ {guest.companion_name}</p>
-                  )}
-                  {guest.drink_preferences.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-1">
-                      {guest.drink_preferences.map((d) => (
-                        <span key={d} className="text-xs px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">
-                          {d}
-                        </span>
-                      ))}
-                    </div>
-                  )}
                   <p className="mt-2 text-xs text-stone-300">{formatDate(guest.created_at)}</p>
                 </div>
               ))}
@@ -254,7 +201,7 @@ export default function GuestList({ guests }: { guests: Guest[] }) {
               <table className="w-full text-sm bg-white">
                 <thead>
                   <tr className="border-b border-stone-100 bg-stone-50">
-                    {['#', 'Имя', 'Статус', 'Спутник', 'Напитки', 'Дата'].map((h) => (
+                    {['#', 'Имя', 'Статус', 'Дата'].map((h) => (
                       <th key={h} className="px-4 py-3 text-left text-xs uppercase tracking-wider font-normal text-stone-400">
                         {h}
                       </th>
@@ -274,20 +221,6 @@ export default function GuestList({ guests }: { guests: Guest[] }) {
                         }`}>
                           {guest.attending ? '✓ Придёт' : '✗ Нет'}
                         </span>
-                      </td>
-                      <td className="px-4 py-3 text-sm text-stone-400">
-                        {guest.companion_name || <span className="text-stone-200">—</span>}
-                      </td>
-                      <td className="px-4 py-3">
-                        {guest.drink_preferences.length > 0 ? (
-                          <div className="flex flex-wrap gap-1">
-                            {guest.drink_preferences.map((d) => (
-                              <span key={d} className="text-xs px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">
-                                {d}
-                              </span>
-                            ))}
-                          </div>
-                        ) : <span className="text-stone-200">—</span>}
                       </td>
                       <td className="px-4 py-3 text-xs text-stone-300 whitespace-nowrap">
                         {formatDate(guest.created_at)}

@@ -9,7 +9,7 @@ const photos = [
   { src: '/photos/1.JPG', alt: 'Шамиль и Милана', style: { gridColumn: '1 / 3', gridRow: '1 / 3' } },
   { src: '/photos/2.JPG', alt: 'Шамиль и Милана', style: { gridColumn: '3 / 4', gridRow: '1 / 2' } },
   { src: '/photos/3.JPG', alt: 'Шамиль и Милана', style: { gridColumn: '3 / 4', gridRow: '2 / 3' } },
-  { src: '/photos/4.JPG', alt: 'Шамиль и Милана', style: { gridColumn: '1 / 2', gridRow: '3 / 5' } },
+  { src: '/photos/10.JPG', alt: 'Шамиль и Милана', style: { gridColumn: '1 / 2', gridRow: '3 / 5' } },
   { src: '/photos/5.JPG', alt: 'Шамиль и Милана', style: { gridColumn: '2 / 4', gridRow: '3 / 5' } },
 ]
 

@@ -28,11 +28,11 @@ export default function DateSection() {
             transition={{ duration: 0.7 }}
             className="flex-1"
           >
-            <h2 className="font-serif text-5xl md:text-6xl text-charcoal mb-4">
-              Мы ждём вас
+            <h2 className="font-serif text-4xl md:text-6xl text-charcoal mb-4">
+              Приглашаем вас
             </h2>
             <p className="text-stone-500 text-lg">
-              Стать частью этого момента, и разделить с нами этот важный день
+              Стань частью этого момента, и разделить с нами этот важный день!
             </p>
           </motion.div>
 
@@ -62,7 +62,7 @@ export default function DateSection() {
                   <div
                     key={`${wi}-${di}`}
                     className={`
-                      py-1 rounded-xl
+                      w-8 h-8 mx-auto flex items-center justify-center rounded-full
                       ${day === 26 ? 'bg-charcoal text-white font-semibold' : 'text-stone-600'}
                       ${!day ? 'invisible' : ''}
                     `}

@@ -26,7 +26,7 @@ export default function Intro() {
                         {/* Полароид-фрейм */}
                         <div className="bg-white p-3 pb-8 shadow-xl rotate-[-2deg] w-[240px] md:w-[280px]">
                             <Image
-                                src="/photos/4.JPG"
+                                src="/photos/10.JPG"
                                 alt="Шамиль и Милана"
                                 width={280}
                                 height={340}
@@ -46,7 +46,7 @@ export default function Intro() {
                             Этот момент настал!
                         </h2>
                         <p className="text-stone-500 leading-relaxed mb-4">
-                            Совсем скоро состоится одно из самых важных и трепетных событий в нашей жизни - день нашей свадьбы
+                            Совсем скоро состоится одно из самых важных и трепетных событий <br/> в нашей жизни - день нашей свадьбы!
                         </p>
 
                         {/*<p className="text-stone-500 leading-relaxed mb-4">*/}

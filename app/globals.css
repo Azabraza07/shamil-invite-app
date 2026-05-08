@@ -38,7 +38,7 @@ body {
 
 /* Arch frame for hero photo */
 .arch-frame {
-  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+  border-radius: 80% 80% 0 0 / 60% 60% 0 0;
   overflow: hidden;
 }
 

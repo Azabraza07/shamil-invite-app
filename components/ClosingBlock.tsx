@@ -7,9 +7,9 @@ export default function ClosingBlock() {
       <div className="flex flex-col md:block">
 
         {/* Фото — только мобильный */}
-        <div className="relative w-full h-[70vw] min-h-[280px] max-h-[480px] md:hidden overflow-hidden">
+        <div className="relative w-full h-[70vw] min-h-[500px] max-h-[480px] md:hidden overflow-hidden">
           <Image
-            src="/photos/20.JPG"
+            src="/photos/22.JPG"
             alt="Шамиль и Милана"
             fill
             sizes="100vw"

@@ -46,7 +46,7 @@ export default function Intro() {
                             Этот момент настал!
                         </h2>
                         <p className="text-stone-500 leading-relaxed mb-4">
-                            Позже напишу
+                            Совсем скоро состоится одно из самых важных и трепетных событий в нашей жизни - день нашей свадьбы
                         </p>
 
                         {/*<p className="text-stone-500 leading-relaxed mb-4">*/}

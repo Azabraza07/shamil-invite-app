@@ -3,54 +3,28 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { Users, Gem, Wine, MoonStar } from 'lucide-react'
 
 const events = [
   {
     time: '16:00',
     label: 'Сбор гостей',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-10 h-10">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-        <circle cx="12" cy="9" r="2.5" />
-        <path d="M8 20s1-1 4-1 4 1 4 1" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: <Users className="w-10 h-10" strokeWidth={1.2} />,
   },
   {
     time: '17:00',
     label: 'Церемония регистрации',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-10 h-10">
-        <circle cx="8" cy="12" r="5.5" />
-        <circle cx="16" cy="12" r="5.5" />
-      </svg>
-    ),
+    icon: <Gem className="w-10 h-10" strokeWidth={1.2} />,
   },
   {
     time: '17:40',
     label: 'Начало банкета',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-10 h-10">
-        <path d="M8 3v4a4 4 0 0 0 8 0V3" />
-        <path d="M12 7v14M8 21h8" />
-        <path d="M6 3h3M15 3h3" />
-        <circle cx="8" cy="1.5" r="0.8" fill="currentColor" />
-        <circle cx="12" cy="1" r="0.8" fill="currentColor" />
-        <circle cx="16" cy="1.5" r="0.8" fill="currentColor" />
-      </svg>
-    ),
+    icon: <Wine className="w-10 h-10" strokeWidth={1.2} />,
   },
   {
     time: '23:00',
     label: 'Завершение вечера',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-10 h-10">
-        <path d="M12 2C6 2 6 8 6 8s0 2 3 3v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9c3-1 3-3 3-3s0-6-6-6z" />
-        <path d="M9 13h6" />
-        <circle cx="7" cy="6" r="1" fill="currentColor" />
-        <circle cx="17" cy="6" r="1" fill="currentColor" />
-      </svg>
-    ),
+    icon: <MoonStar className="w-10 h-10" strokeWidth={1.2} />,
   },
 ]
 

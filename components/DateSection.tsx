@@ -32,7 +32,7 @@ export default function DateSection() {
               Мы ждём вас
             </h2>
             <p className="text-stone-500 text-lg">
-              Не пропустите важное событие лета&nbsp;— день нашей свадьбы!
+              Стать частью этого момента, и разделить с нами этот важный день
             </p>
           </motion.div>
 

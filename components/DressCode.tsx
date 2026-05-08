@@ -5,12 +5,12 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const palette = [
-  { color: '#eae1d6', label: 'Кремовый' },
-  { color: '#d6c0a8', label: 'Бежевый' },
-  { color: '#e3beb5', label: 'Пудровый' },
-  { color: '#97a380', label: 'Шалфей' },
-  { color: '#7a5946', label: 'Шоколад' },
-  { color: '#65653e', label: 'Оливковый' },
+  { color: '#eae1d6', label: '' },
+  { color: '#d6c0a8', label: '' },
+  { color: '#e3beb5', label: '' },
+  { color: '#97a380', label: '' },
+  { color: '#7a5946', label: '' },
+  { color: '#65653e', label: '' },
 ]
 
 export default function DressCode() {
@@ -50,7 +50,7 @@ export default function DressCode() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-stone-500 mb-10 leading-relaxed"
         >
-          Позже напишу
+          Будем рады, если вы поддержите стиль нашего праздника и выберете наряды в палитре мероприятия
         </motion.p>
 
         <div className="grid grid-cols-3 sm:grid-cols-6 justify-items-center gap-x-4 gap-y-6 mb-10">

@@ -35,7 +35,7 @@ export default function Hero() {
         </div>
 
         <div
-          className=" w-48 text-stone-300 text-sm tracking-[0.3em] text-gray-700 "
+          className=" w-48  text-sm tracking-[0.3em] text-gray-700 "
           style={{ animationDelay: '600ms' }}
         >
           26 ИЮНЯ 2026

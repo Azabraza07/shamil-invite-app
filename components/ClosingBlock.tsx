@@ -6,7 +6,7 @@ export default function ClosingBlock() {
       {/* Фото */}
       <div className="relative w-full h-[100vh] max-h-[600px] min-h-[300px] overflow-hidden">
         <Image
-          src="/photos/5.JPG"
+          src="/photos/20.JPG"
           alt="Шамиль и Милана"
           fill
           sizes="100vw"

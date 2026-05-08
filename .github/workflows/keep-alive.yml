@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Ping Supabase via site endpoint
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+          STATUS=$(curl -s -L -o /dev/null -w "%{http_code}" \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
             "${{ secrets.SITE_URL }}/api/cron/ping")
           echo "Response status: $STATUS"

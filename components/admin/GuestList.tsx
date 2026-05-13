@@ -3,11 +3,6 @@
 import { useState, useMemo, useEffect, useCallback } from 'react'
 import type { Guest } from '@/lib/supabase-admin'
 
-const ALLOWED_DRINKS = [
-  'Шампанское', 'Белое вино', 'Красное вино', 'Виски',
-  'Водка', 'Джин', 'Ром', 'Не пью алкоголь',
-]
-
 const PAGE_SIZE = 20
 
 function formatDate(iso: string) {
@@ -110,16 +105,8 @@ function EditModal({
 }) {
   const [name, setName] = useState(guest.name)
   const [attending, setAttending] = useState(guest.attending)
-  const [companionName, setCompanionName] = useState(guest.companion_name ?? '')
-  const [drinks, setDrinks] = useState<string[]>(guest.drink_preferences ?? [])
   const [saving, setSaving] = useState(false)
   const [err, setErr] = useState('')
-
-  function toggleDrink(drink: string) {
-    setDrinks((prev) =>
-      prev.includes(drink) ? prev.filter((d) => d !== drink) : [...prev, drink]
-    )
-  }
 
   async function handleSave() {
     if (!name.trim()) { setErr('Имя обязательно'); return }
@@ -132,8 +119,6 @@ function EditModal({
         body: JSON.stringify({
           name: name.trim(),
           attending,
-          companion_name: companionName.trim() || null,
-          drink_preferences: drinks,
         }),
       })
       const data = await res.json()
@@ -182,35 +167,6 @@ function EditModal({
             </div>
           </div>
 
-          <div>
-            <label className="text-xs text-stone-400 uppercase tracking-wider mb-1 block">Спутник</label>
-            <input
-              value={companionName}
-              onChange={(e) => setCompanionName(e.target.value)}
-              placeholder="Имя спутника (необязательно)"
-              className="w-full px-3 py-2 border border-stone-200 rounded-lg text-stone-700 text-sm focus:outline-none focus:ring-2 focus:ring-stone-300"
-            />
-          </div>
-
-          <div>
-            <label className="text-xs text-stone-400 uppercase tracking-wider mb-2 block">Напитки</label>
-            <div className="flex flex-wrap gap-1.5">
-              {ALLOWED_DRINKS.map((d) => (
-                <button
-                  key={d}
-                  type="button"
-                  onClick={() => toggleDrink(d)}
-                  className={`px-2.5 py-1 rounded-full text-xs border transition-colors ${
-                    drinks.includes(d)
-                      ? 'bg-stone-700 border-stone-700 text-white'
-                      : 'border-stone-200 text-stone-400 hover:border-stone-300'
-                  }`}
-                >
-                  {d}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
 
         {err && <p className="text-red-500 text-sm">{err}</p>}
@@ -324,8 +280,7 @@ export default function GuestList({ guests: initialGuests }: { guests: Guest[] }
       const q = search.toLowerCase()
       const matchesSearch =
         !q ||
-        g.name.toLowerCase().includes(q) ||
-        (g.companion_name ?? '').toLowerCase().includes(q)
+        g.name.toLowerCase().includes(q)
       return matchesFilter && matchesSearch
     })
 
@@ -423,7 +378,7 @@ export default function GuestList({ guests: initialGuests }: { guests: Guest[] }
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Поиск по имени или спутнику..."
+              placeholder="Поиск по имени..."
               className="w-full pl-8 pr-4 py-2.5 text-sm text-stone-600 bg-white rounded-xl border border-stone-200 placeholder:text-stone-300 focus:outline-none focus:ring-2 focus:ring-stone-200 transition-all"
             />
           </div>
@@ -487,12 +442,6 @@ export default function GuestList({ guests: initialGuests }: { guests: Guest[] }
                       </button>
                     </div>
                   </div>
-                  {guest.companion_name && (
-                    <p className="mt-1 text-xs text-stone-400">+ {guest.companion_name}</p>
-                  )}
-                  {guest.drink_preferences?.length > 0 && (
-                    <p className="mt-1 text-xs text-stone-300">{guest.drink_preferences.join(', ')}</p>
-                  )}
                   <p className="mt-2 text-xs text-stone-300">{formatDate(guest.created_at)}</p>
                 </div>
               ))}
@@ -516,8 +465,6 @@ export default function GuestList({ guests: initialGuests }: { guests: Guest[] }
                         {label}<SortArrow col={key} />
                       </th>
                     ))}
-                    <th className="px-4 py-3 text-left text-xs uppercase tracking-wider font-normal text-stone-400">Спутник</th>
-                    <th className="px-4 py-3 text-left text-xs uppercase tracking-wider font-normal text-stone-400">Напитки</th>
                     <th
                       onClick={() => handleSort('created_at')}
                       className="px-4 py-3 text-left text-xs uppercase tracking-wider font-normal text-stone-400 cursor-pointer hover:text-stone-600 select-none"
@@ -540,14 +487,6 @@ export default function GuestList({ guests: initialGuests }: { guests: Guest[] }
                         }`}>
                           {guest.attending ? '✓ Придёт' : '✗ Нет'}
                         </span>
-                      </td>
-                      <td className="px-4 py-3 text-xs text-stone-400">
-                        {guest.companion_name || <span className="text-stone-200">—</span>}
-                      </td>
-                      <td className="px-4 py-3 text-xs text-stone-400 max-w-[160px]">
-                        {guest.drink_preferences?.length
-                          ? guest.drink_preferences.join(', ')
-                          : <span className="text-stone-200">—</span>}
                       </td>
                       <td className="px-4 py-3 text-xs text-stone-300 whitespace-nowrap">
                         {formatDate(guest.created_at)}

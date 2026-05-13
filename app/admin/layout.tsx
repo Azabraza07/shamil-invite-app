@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { verifyAdminSessionToken } from '@/lib/admin-session'
 
 export default async function AdminLayout({
   children,
@@ -9,7 +10,7 @@ export default async function AdminLayout({
   const cookieStore = await cookies()
   const session = cookieStore.get('admin_session')
 
-  if (!session || session.value !== process.env.ADMIN_SESSION_SECRET) {
+  if (!verifyAdminSessionToken(session?.value ?? '')) {
     redirect('/admin-login')
   }
 

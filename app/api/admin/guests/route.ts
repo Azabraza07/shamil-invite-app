@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { supabaseAdmin } from '@/lib/supabase-admin'
+import { verifyAdminSessionToken } from '@/lib/admin-session'
 
 export async function GET() {
   const cookieStore = await cookies()
   const session = cookieStore.get('admin_session')
-  if (!session || session.value !== process.env.ADMIN_SESSION_SECRET) {
+  if (!verifyAdminSessionToken(session?.value ?? '')) {
     return NextResponse.json({ ok: false }, { status: 401 })
   }
 

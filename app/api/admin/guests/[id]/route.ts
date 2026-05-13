@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { supabaseAdmin } from '@/lib/supabase-admin'
+import { verifyAdminSessionToken } from '@/lib/admin-session'
 
 const ALLOWED_DRINKS = [
   'Шампанское', 'Белое вино', 'Красное вино', 'Виски',
@@ -10,7 +11,7 @@ const ALLOWED_DRINKS = [
 async function checkAdmin() {
   const cookieStore = await cookies()
   const session = cookieStore.get('admin_session')
-  return session?.value === process.env.ADMIN_SESSION_SECRET
+  return verifyAdminSessionToken(session?.value ?? '')
 }
 
 export async function DELETE(

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { checkRateLimit } from '@/lib/rate-limit'
+import { generateAdminSessionToken } from '@/lib/admin-session'
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,7 +20,7 @@ export async function POST(request: NextRequest) {
     }
 
     const response = NextResponse.json({ ok: true })
-    response.cookies.set('admin_session', process.env.ADMIN_SESSION_SECRET!, {
+    response.cookies.set('admin_session', generateAdminSessionToken(), {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',

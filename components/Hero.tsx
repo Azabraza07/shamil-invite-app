@@ -44,7 +44,7 @@ export default function Hero() {
         {/* Фото — priority + fetchPriority для максимально быстрого LCP */}
         <div className="relative mt-4 w-[340px] md:w-[320px] h-[500px] md:h-[520px] arch-frame shadow-lg overflow-hidden">
           <Image
-            src="/photos/1.JPG"
+            src="/photos/111.JPG"
             alt="Шамиль и Милана"
             fill
             sizes="(max-width: 768px) 260px, 320px"

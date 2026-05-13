@@ -31,8 +31,8 @@ export default function DateSection() {
             <h2 className="font-serif text-4xl md:text-6xl text-charcoal mb-4">
               Приглашаем вас
             </h2>
-            <p className="text-stone-500 text-lg">
-              Стань частью этого момента, и разделить с нами этот важный день!
+            <p className="text-stone-500 leading-relaxed mb-4">
+              Стать частью этого момента, и разделить с нами этот важный день!
             </p>
           </motion.div>
 

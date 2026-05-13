@@ -9,7 +9,7 @@ export default function ClosingBlock() {
         {/* Фото — только мобильный */}
         <div className="relative w-full h-[70vw] min-h-[500px] max-h-[480px] md:hidden overflow-hidden">
           <Image
-            src="/photos/22.JPG"
+            src="/photos/113.JPG"
             alt="Шамиль и Милана"
             fill
             sizes="100vw"

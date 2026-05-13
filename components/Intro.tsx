@@ -26,7 +26,7 @@ export default function Intro() {
                         {/* Полароид-фрейм */}
                         <div className="bg-white p-3 pb-8 shadow-xl rotate-[-2deg] w-[240px] md:w-[280px]">
                             <Image
-                                src="/photos/10.JPG"
+                                src="/photos/112.JPG"
                                 alt="Шамиль и Милана"
                                 width={280}
                                 height={340}
